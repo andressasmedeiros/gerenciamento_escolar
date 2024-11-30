@@ -1,4 +1,5 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:p="http://primefaces.org/ui"
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 template="resources/template.xhtml">
@@ -7,6 +8,11 @@
     </ui:define>
 
     <ui:define name="body">
-        <h:outputText value="Teste"/>
+        <h:outputText id="exibicaoTexto" value="#{indexBean.name}"/>
+        <p:inputText id="campoDeTexto" value="#{indexBean.name}"/>
+        <p:commandButton value="Cadastrar"
+                         process="campoDeTexto"
+                         action="#{indexBean.logarNome()}"
+                         update="exibicaoTexto"/>
     </ui:define>
 </ui:composition>

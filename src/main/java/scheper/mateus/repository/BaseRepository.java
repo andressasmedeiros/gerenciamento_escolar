@@ -7,7 +7,7 @@ import java.io.Serial;
 import java.io.Serializable;
 
 @ApplicationScoped
-public class BaseRepository implements Serializable {
+public class  BaseRepository implements Serializable {
 
     
     @Serial
