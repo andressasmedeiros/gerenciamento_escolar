@@ -1,0 +1,72 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="../resources/template.xhtml">
+    <ui:define name="title">
+        <title>Cadastro de turma</title>
+    </ui:define>
+
+    <ui:define name="body">
+        <div class="field col-12 md:col-4">
+            <p:outputLabel for="nomeTurma"
+                           value="Nome"/>
+            <p:inputText id="nomeTurma"
+                         value="#{cadastroTurmaBean.turma.nome}">
+                <p:ajax process="@this" update="@this"/>
+            </p:inputText>
+        </div>
+
+        <div class="field col-12 md:col-4">
+            <p:outputLabel for="inicioTurma"
+                           value="Início"/>
+            <p:datePicker id="inicioTurma"
+                          value="#{cadastroTurmaBean.turma.inicio}"
+                          showIcon="true"
+                          showOnFocus="false">
+                <p:ajax process="@this" update="@this"/>
+            </p:datePicker>
+        </div>
+
+        <div class="field col-12 md:col-4">
+            <p:outputLabel for="terminoTurma"
+                           value="Término"/>
+            <p:datePicker id="terminoTurma"
+                          value="#{cadastroTurmaBean.turma.termino}"
+                          showIcon="true"
+                          showOnFocus="false">
+                <p:ajax process="@this" update="@this"/>
+            </p:datePicker>
+        </div>
+
+        <div class="field col-12 md:col-4">
+            <p:outputLabel for="quantidadeMinimaEstudantes"
+                           value="Quantidade mínima de estudantes"/>
+            <p:inputNumber id="quantidadeMinimaEstudantes"
+                           value="#{cadastroTurmaBean.turma.quantidadeMinimaEstudantes}"
+                           minValue="1"
+                           decimalPlaces="0">
+                <p:ajax process="@this" update="@this"/>
+            </p:inputNumber>
+        </div>
+
+        <div class="field col-12 md:col-4">
+            <p:outputLabel for="quantidadeMaximaEstudantes"
+                           value="Quantidade máxima de estudantes"/>
+            <p:inputNumber id="quantidadeMaximaEstudantes"
+                           value="#{cadastroTurmaBean.turma.quantidadeMaximaEstudantes}"
+                           minValue="1"
+                           decimalPlaces="0">
+                <p:ajax process="@this" update="@this"/>
+            </p:inputNumber>
+        </div>
+
+        <div class="col-12 md:col-12 sm:col-12">
+            <p:commandButton id="cadastrarTurma"
+                             action="#{cadastroTurmaBean.cadastrar()}"
+                             process="@this"
+                             update="@form"
+                             value="CADASTRAR"/>
+        </div>
+    </ui:define>
+</ui:composition>
